@@ -1,0 +1,25 @@
+.add-restaurant-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    margin: 20px 50px;
+  }
+  mat-icon {
+   position: absolute;
+   color: blue;
+   top : 5px;
+   left : 5px;
+   
+  }
+
+  

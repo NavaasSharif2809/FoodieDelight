@@ -1,0 +1,39 @@
+
+  .tablink {
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+    padding: 15px 18px;
+    font-size: 16px;
+    width: 50%;
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
+
+  .para
+  {
+    margin-top: 250px;
+    margin-left: 250px;
+  }
+
+  .container {
+    position: relative;
+  }
+  
+  .logout-button {
+    position: absolute;
+    top: 16px; /* Distance from the top edge */
+    right: 16px; /* Distance from the right edge */
+    z-index: 1000;
+    color: red;
+  }
+  

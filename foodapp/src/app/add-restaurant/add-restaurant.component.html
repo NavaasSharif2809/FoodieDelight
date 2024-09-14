@@ -1,0 +1,68 @@
+<div>
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
+
+<div class="add-restaurant-container">
+ 
+    <form #restaurantForm="ngForm" (ngSubmit)="onSubmit(restaurantForm)" autocomplete="off">
+      <mat-form-field appearance="fill">
+        <mat-label>Restaurant Name</mat-label>
+        <input matInput [(ngModel)]="restaurant.name" name="name"  #name="ngModel" required />
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors?.['required']">Please enter restaurant name.</div>
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select [(ngModel)]="restaurant.state" name="state" #state="ngModel" (selectionChange)="onStateChange($event.value)" required>
+          <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="state.invalid && (state.dirty || state.touched)">
+          <div *ngIf="state.errors?.['required']">Please select a state.</div>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="restaurant.city" name="city"  #city="ngModel" required>
+          <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">
+          <div *ngIf="city.errors?.['required']">Please select a city.</div>
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Menu</mat-label>
+        <input matInput [(ngModel)]="restaurant.menu" name="menu" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Contact Number</mat-label>
+        <input matInput [(ngModel)]="restaurant.contactNumber" maxlength="10" name="contactNumber" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="restaurant.description" name="description"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Customer Feedback</mat-label>
+        <textarea matInput [(ngModel)]="restaurant.customerFeedback" name="customerFeedback"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Available Timing</mat-label>
+        <input matInput [(ngModel)]="restaurant.availableTiming" name="availableTiming" />
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="restaurantForm.invalid">Add Restaurant</button>
+  
+      <mat-dialog-content *ngIf="errorMessage">{{errorMessage}}</mat-dialog-content>
+    </form>
+  </div>
+  

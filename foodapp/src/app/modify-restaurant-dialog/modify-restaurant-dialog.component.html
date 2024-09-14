@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Modify Restaurant</h1>
+<div mat-dialog-content>
+  <form #modifyForm="ngForm" autocomplete="off">
+    <mat-form-field appearance="fill">
+      <mat-label>Restaurant Name</mat-label>
+      <input matInput [(ngModel)]="data.restaurant.name" name="name" [readonly]="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select [(ngModel)]="data.restaurant.state" name="state" (selectionChange)="onStateChange($event.value)">
+          <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="data.restaurant.city" name="city">
+          <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+
+    <mat-form-field appearance="fill">
+      <mat-label>Menu</mat-label>
+      <input matInput [(ngModel)]="data.restaurant.menu" name="menu" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Contact Number</mat-label>
+      <input matInput [(ngModel)]="data.restaurant.contactNumber" maxlength="10" name="contactNumber" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="data.restaurant.description" name="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Customer Feedback</mat-label>
+      <textarea matInput [(ngModel)]="data.restaurant.customerFeedback" name="customerFeedback"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Available Timing</mat-label>
+      <input matInput [(ngModel)]="data.restaurant.availableTiming" name="availableTiming" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</div>
